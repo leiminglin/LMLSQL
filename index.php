@@ -28,4 +28,21 @@ function getRemoteLmlPhp(){
 }
 getRemoteLmlPhp();
 
-lml()->app()->run();
+lml()->app()->addLastRouter(array('sqlexec'))->run();
+
+function sqlexec(){
+
+    $dbconfig = require APP_PATH.'conf/dbconfig.php';
+
+    if(in_array(C_MODULE, array_keys($dbconfig))){
+        $db = MysqlPdoEnhance::getInstance($dbconfig[C_MODULE]);
+        $sql = isset($_SERVER['argv'][2])?$_SERVER['argv'][2]:'';
+        $rs = $db->query($sql);
+        var_dump($rs);
+    }else{
+        echo 'not found!';
+    }
+}
+
+
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+#Author may
+
+
+fp=`readlink $0`;
+
+basedir=`dirname $fp`
+
+cd $basedir
+
+php index.php $1 "$2"
