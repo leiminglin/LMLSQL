@@ -40,4 +40,8 @@ return $dbconfig = array(
 
 ```
 lmlsql /dev "show create table db.tablename"
+
+or
+
+lmlsql dev "show create table db.tablename"
 ```
