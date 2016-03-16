@@ -1,11 +1,10 @@
 #!/bin/bash
 #Author may
 
-
+if [ -L $0 ];then
 fp=`readlink $0`;
-
 basedir=`dirname $fp`
-
 cd $basedir
+fi
 
 php index.php $1 "$2"
